@@ -34,3 +34,8 @@ application {
     // Define the main class for the application.
     mainClass = 'todo.App'
 }
+
+// Forward the terminal's keyboard input to the running app so Scanner works.
+run {
+    standardInput = System.in
+}

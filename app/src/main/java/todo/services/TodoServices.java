@@ -25,6 +25,30 @@ public class TodoServices {
                 .forEach(todo -> System.out.println(todo.getTitle()));
     }
     public void edit(String id, String title){
-
+        for (Todo t : todos){
+            if(t.getId().equals(id)){
+                t.setTitle(title);
+                return;
+            }
+        }
+    }
+    public void delete(String id){
+        todos.removeIf(todo -> todo.getId().equals(id));
+    }
+    public void setDone(String id){
+        for (Todo t : todos){
+            if(t.getId().equals(id)){
+                t.setDone(true);
+                return;
+            }
+        }
+    }
+    public void setUndone(String id){
+        for (Todo t : todos){
+            if(t.getId().equals(id)){
+                t.setDone(false);
+                return;
+            }
+        }
     }
 }
