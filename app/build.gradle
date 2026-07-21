@@ -21,6 +21,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation libs.guava
+    implementation libs.jbcrypt
+    implementation libs.jackson.databind
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -38,4 +40,6 @@ application {
 // Forward the terminal's keyboard input to the running app so Scanner works.
 run {
     standardInput = System.in
+    // Run from the project root so relative paths like the db folder resolve correctly.
+    workingDir = rootProject.projectDir
 }
